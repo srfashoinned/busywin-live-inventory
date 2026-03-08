@@ -13677,7 +13677,7 @@
     "Item_Sale_Price": 1700.0,
     "Item_Purchase_Price": 1450.0,
     "Item_SelfVal_Price": 1530.0,
-    "Stock": 3.0
+    "Stock": 2.0
   },
   {
     "ItemName": "KC RESTART",
@@ -23877,7 +23877,7 @@
     "Item_Sale_Price": 1800.0,
     "Item_Purchase_Price": 1580.0,
     "Item_SelfVal_Price": 1700.0,
-    "Stock": 4.0
+    "Stock": 3.0
   },
   {
     "ItemName": "SBT DELHI",
@@ -27067,7 +27067,7 @@
     "Item_Sale_Price": 600.0,
     "Item_Purchase_Price": 546.67,
     "Item_SelfVal_Price": 615.0,
-    "Stock": 3.0
+    "Stock": 2.0
   },
   {
     "ItemName": "SNT Urmila",
