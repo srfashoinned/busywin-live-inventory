@@ -143,9 +143,7 @@ async function loadItems(){
 
 try{
 
-const r = await fetch(
-"http://127.0.0.1:5001/items?nocache="+Date.now()
-)
+const r = await fetch("https://schedules-educational-sales-retailer.trycloudflare.com ")
 
 items = await r.json()
 
