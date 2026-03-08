@@ -4647,7 +4647,7 @@
     "Item_Sale_Price": 800.0,
     "Item_Purchase_Price": 685.0,
     "Item_SelfVal_Price": 725.0,
-    "Stock": 6.0
+    "Stock": 5.0
   },
   {
     "ItemName": "GK Toffy",
@@ -7727,7 +7727,7 @@
     "Item_Sale_Price": 2800.0,
     "Item_Purchase_Price": 2080.0,
     "Item_SelfVal_Price": 2300.0,
-    "Stock": 1.0
+    "Stock": 0.0
   },
   {
     "ItemName": "KC BEAUTY SWAG",
