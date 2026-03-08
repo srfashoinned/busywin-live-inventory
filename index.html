@@ -29,6 +29,11 @@ margin-bottom:10px;
 box-sizing:border-box;
 }
 
+button{
+padding:10px;
+margin-bottom:10px;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
@@ -38,17 +43,20 @@ font-size:13px;
 th{
 background:#27ae60;
 color:white;
-padding:8px;
+padding:6px;
 }
 
 td{
-padding:8px;
+padding:6px;
 border-bottom:1px solid #ddd;
 }
+
+/* column colors */
 
 .col-wholesale{
 background:#e8fff1;
 font-weight:bold;
+color:#1e7e34;
 }
 
 .col-purchase{
@@ -62,7 +70,7 @@ color:red;
 font-weight:bold;
 }
 
-/* MOBILE FIX */
+/* mobile */
 
 @media(max-width:600px){
 
@@ -71,13 +79,13 @@ font-size:11px;
 }
 
 th,td{
-padding:5px;
+padding:4px;
+word-break:break-word;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -86,9 +94,11 @@ padding:5px;
 
 <h1 ondblclick="openAdmin()">SR Psd Inventory</h1>
 
-<input id="searchBox" class="search" placeholder="Search item...">
+<input id="searchBox" class="search" placeholder="Search item">
 
-<div id="table"></div>
+<button onclick="loadItems()">Refresh</button>
+
+<div id="table">Loading...</div>
 
 </div>
 
@@ -109,7 +119,12 @@ justify-content:center">
 
 <h3>Admin Login</h3>
 
-<input id="pass" type="password" inputmode="numeric" placeholder="Password">
+<input id="pass"
+type="password"
+inputmode="numeric"
+pattern="[0-9]*"
+placeholder="Password"
+style="padding:10px;font-size:18px;text-align:center">
 
 <br><br>
 
@@ -126,13 +141,21 @@ let isAdmin=false
 
 async function loadItems(){
 
-const r=await fetch(
-"https://raw.githubusercontent.com/srfashoinned/busywin-live-inventory/main/items.json"
+try{
+
+const r = await fetch(
+"http://127.0.0.1:5001/items?nocache="+Date.now()
 )
 
-items=await r.json()
+items = await r.json()
 
 render(items)
+
+}catch(e){
+
+document.getElementById("table").innerHTML="API not running"
+
+}
 
 }
 
@@ -156,21 +179,25 @@ html+="</tr>"
 
 data.forEach(i=>{
 
+let stock=parseFloat(i.Stock||0)
+
+let stockClass=stock<10?"stock-low":""
+
 html+=`<tr>
 
 <td>${i.ItemName}</td>
 
 <td>${i.ItemAlias||''}</td>
 
-<td>${i.Stock}</td>
+<td class="${stockClass}">${stock}</td>
 
-<td>${i.Item_MRP}</td>
+<td>₹ ${i.Item_MRP}</td>
 
-<td>${i.Item_Sale_Price}</td>
+<td>₹ ${i.Item_Sale_Price}</td>
 
-<td class="col-wholesale">${i.Item_SelfVal_Price}</td>
+<td class="col-wholesale">₹ ${i.Item_SelfVal_Price}</td>
 
-${isAdmin ? `<td class="col-purchase">${i.Item_Purchase_Price}</td>` : ``}
+${isAdmin ? `<td class="col-purchase">₹ ${i.Item_Purchase_Price}</td>` : ``}
 
 </tr>`
 
@@ -181,8 +208,6 @@ html+="</table>"
 document.getElementById("table").innerHTML=html
 
 }
-
-/* FAST SEARCH */
 
 document.getElementById("searchBox").addEventListener("input",function(){
 
