@@ -87,38 +87,15 @@ padding:10px;
 border-bottom:1px solid #ddd;
 }
 
-/* COLUMN COLORS */
+/* column colors */
 
-.col-name{
-background:#f8f9fa;
-font-weight:bold;
-}
-
-.col-barcode{
-background:#eef5ff;
-font-weight:bold;
-}
-
-.col-group{
-background:#f9f9f9;
-}
-
-.col-stock{
-background:#fff6e5;
-}
-
-.col-mrp{
-background:#fdeaea;
-}
-
-.col-sale{
-background:#eaf7ff;
-font-weight:bold;
-}
-
-.col-wholesale{
-background:#edf9f1;
-}
+.col-name{background:#f8f9fa;font-weight:bold;}
+.col-barcode{background:#eef5ff;font-weight:bold;}
+.col-group{background:#f9f9f9;}
+.col-stock{background:#fff6e5;}
+.col-mrp{background:#fdeaea;}
+.col-sale{background:#eaf7ff;font-weight:bold;}
+.col-wholesale{background:#edf9f1;}
 
 .stock-low{
 color:red;
@@ -136,9 +113,6 @@ font-size:18px;
 }
 
 </style>
-
-<script src="https://unpkg.com/@zxing/library@0.18.6/umd/index.min.js"></script>
-
 </head>
 
 <body>
@@ -152,8 +126,6 @@ font-size:18px;
 <div class="search-box">
 
 <input type="text" id="searchInput" placeholder="Search item or scan barcode">
-
-<button onclick="startCamera()">📷 Scan</button>
 
 <button onclick="window.location.reload()">🔄 Refresh</button>
 
@@ -170,17 +142,17 @@ font-size:18px;
 
 </div>
 
-
 <script>
 
 let items=[];
-let codeReader=null;
 
 async function loadItems(){
 
 try{
 
-const response = await fetch("https://raw.githubusercontent.com/srfashoinned/busywin-live-inventory/main/items.json");
+const response = await fetch(
+"https://raw.githubusercontent.com/srfashoinned/busywin-live-inventory/main/items.json"
+);
 
 items = await response.json();
 
@@ -198,7 +170,6 @@ document.getElementById("itemsContainer").innerHTML =
 }
 
 }
-
 
 function displayItems(data){
 
@@ -218,7 +189,9 @@ html+="</tr></thead><tbody>";
 
 data.forEach(item=>{
 
-let stockClass=item.Stock<10?"stock-low":"";
+let stock=parseFloat(item.Stock||0);
+
+let stockClass=stock<10?"stock-low":"";
 
 html+=`<tr data-name="${(item.ItemName||'').toLowerCase()}" 
 data-alias="${(item.ItemAlias||'').toLowerCase()}">
@@ -229,13 +202,13 @@ data-alias="${(item.ItemAlias||'').toLowerCase()}">
 
 <td class="col-group">${item.GroupName||'-'}</td>
 
-<td class="col-stock ${stockClass}">${parseFloat(item.Stock||0).toFixed(2)}</td>
+<td class="col-stock ${stockClass}">${stock.toFixed(2)}</td>
 
 <td class="col-mrp">₹ ${parseFloat(item.Item_MRP||0).toFixed(2)}</td>
 
 <td class="col-sale">₹ ${parseFloat(item.Item_Sale_Price||0).toFixed(2)}</td>
 
-<td class="col-wholesale">₹ ${parseFloat(item.Item_Wholesale_Price||0).toFixed(2)}</td>
+<td class="col-wholesale">₹ ${parseFloat(item.Item_SelfVal_Price||0).toFixed(2)}</td>
 
 </tr>`;
 
@@ -252,7 +225,6 @@ document.getElementById("visibleCount").innerText=data.length;
 setupSearch();
 
 }
-
 
 function setupSearch(){
 
@@ -284,14 +256,6 @@ document.getElementById("visibleCount").innerText=visible;
 });
 
 }
-
-
-function startCamera(){
-
-alert("Barcode scan coming soon");
-
-}
-
 
 loadItems();
 
