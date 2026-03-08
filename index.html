@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SR Psd Inventory</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
 body{
 font-family:Arial;
+margin:0;
 background:#f4f6f8;
-margin:10px;
 }
 
 .container{
-max-width:1200px;
-margin:auto;
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 3px 8px rgba(0,0,0,0.1);
+padding:10px;
 }
 
 h1{
@@ -26,22 +21,18 @@ text-align:center;
 cursor:pointer;
 }
 
-.search-box{
-display:flex;
-gap:10px;
-margin-bottom:10px;
-}
-
-.search-box input{
-flex:1;
-padding:10px;
+.search{
+width:100%;
+padding:12px;
 font-size:16px;
+margin-bottom:10px;
+box-sizing:border-box;
 }
 
 table{
 width:100%;
 border-collapse:collapse;
-font-size:14px;
+font-size:13px;
 }
 
 th{
@@ -62,8 +53,8 @@ font-weight:bold;
 
 .col-purchase{
 background:#ffecec;
-font-weight:bold;
 color:#c0392b;
+font-weight:bold;
 }
 
 .stock-low{
@@ -71,9 +62,9 @@ color:red;
 font-weight:bold;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 
-@media(max-width:768px){
+@media(max-width:600px){
 
 table{
 font-size:11px;
@@ -83,34 +74,27 @@ th,td{
 padding:5px;
 }
 
-.col-name{
-max-width:100px;
-word-break:break-word;
-}
-
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1 ondblclick="adminLogin()">SR Psd Inventory</h1>
+<h1 ondblclick="openAdmin()">SR Psd Inventory</h1>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search item">
-<button onclick="loadItems()">Refresh</button>
-</div>
+<input id="searchBox" class="search" placeholder="Search item...">
 
-<div id="itemsContainer">Loading...</div>
+<div id="table"></div>
 
 </div>
 
 <!-- ADMIN LOGIN -->
 
-<div id="adminBox" style="
+<div id="adminPopup" style="
 display:none;
 position:fixed;
 top:0;
@@ -121,20 +105,15 @@ background:rgba(0,0,0,0.5);
 align-items:center;
 justify-content:center">
 
-<div style="background:white;padding:30px;border-radius:10px;text-align:center">
+<div style="background:white;padding:20px;border-radius:10px;text-align:center">
 
 <h3>Admin Login</h3>
 
-<input id="adminPass"
-type="password"
-inputmode="numeric"
-pattern="[0-9]*"
-placeholder="Password"
-style="padding:10px;font-size:18px;text-align:center">
+<input id="pass" type="password" inputmode="numeric" placeholder="Password">
 
 <br><br>
 
-<button onclick="checkAdmin()">Login</button>
+<button onclick="login()">Login</button>
 
 </div>
 
@@ -147,17 +126,17 @@ let isAdmin=false
 
 async function loadItems(){
 
-const response = await fetch(
+const r=await fetch(
 "https://raw.githubusercontent.com/srfashoinned/busywin-live-inventory/main/items.json"
 )
 
-items = await response.json()
+items=await r.json()
 
-displayItems(items)
+render(items)
 
 }
 
-function displayItems(data){
+function render(data){
 
 let html="<table>"
 
@@ -175,27 +154,23 @@ html+="<th>Purchase</th>"
 
 html+="</tr>"
 
-data.forEach(item=>{
+data.forEach(i=>{
 
-let stock=parseFloat(item.Stock||0)
+html+=`<tr>
 
-let stockClass=stock<10?"stock-low":""
+<td>${i.ItemName}</td>
 
-html+=`<tr data-name="${(item.ItemName||'').toLowerCase()}">
+<td>${i.ItemAlias||''}</td>
 
-<td>${item.ItemName}</td>
+<td>${i.Stock}</td>
 
-<td>${item.ItemAlias||'-'}</td>
+<td>${i.Item_MRP}</td>
 
-<td class="${stockClass}">${stock}</td>
+<td>${i.Item_Sale_Price}</td>
 
-<td>₹ ${item.Item_MRP}</td>
+<td class="col-wholesale">${i.Item_SelfVal_Price}</td>
 
-<td>₹ ${item.Item_Sale_Price}</td>
-
-<td class="col-wholesale">₹ ${item.Item_SelfVal_Price}</td>
-
-${isAdmin ? `<td class="col-purchase">₹ ${item.Item_Purchase_Price}</td>` : ``}
+${isAdmin ? `<td class="col-purchase">${i.Item_Purchase_Price}</td>` : ``}
 
 </tr>`
 
@@ -203,59 +178,42 @@ ${isAdmin ? `<td class="col-purchase">₹ ${item.Item_Purchase_Price}</td>` : ``
 
 html+="</table>"
 
-document.getElementById("itemsContainer").innerHTML=html
-
-setupSearch()
+document.getElementById("table").innerHTML=html
 
 }
 
-function setupSearch(){
+/* FAST SEARCH */
 
-document.getElementById("searchInput").addEventListener("keyup",function(){
+document.getElementById("searchBox").addEventListener("input",function(){
 
-let search=this.value.toLowerCase()
+let q=this.value.toLowerCase()
 
-let rows=document.querySelectorAll("table tr")
+let filtered=items.filter(i=>
+(i.ItemName||"").toLowerCase().includes(q) ||
+(i.ItemAlias||"").toLowerCase().includes(q)
+)
 
-rows.forEach(row=>{
-
-if(row.innerText.toLowerCase().includes(search)){
-row.style.display=""
-}
-else{
-row.style.display="none"
-}
+render(filtered)
 
 })
-
-})
-
-}
 
 /* ADMIN LOGIN */
 
-function adminLogin(){
-document.getElementById("adminBox").style.display="flex"
+function openAdmin(){
+document.getElementById("adminPopup").style.display="flex"
 }
 
-function checkAdmin(){
+function login(){
 
-let pass=document.getElementById("adminPass").value
-
-if(pass==="7865"){
+if(document.getElementById("pass").value==="7865"){
 isAdmin=true
-document.getElementById("adminBox").style.display="none"
-displayItems(items)
-}
-else{
+document.getElementById("adminPopup").style.display="none"
+render(items)
+}else{
 alert("Wrong password")
 }
 
 }
-
-/* AUTO REFRESH */
-
-setInterval(loadItems,30000)
 
 loadItems()
 
