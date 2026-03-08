@@ -227,7 +227,7 @@
     "Item_Sale_Price": 300.0,
     "Item_Purchase_Price": 254.6666667,
     "Item_SelfVal_Price": 286.5,
-    "Stock": -1.0
+    "Stock": -2.0
   },
   {
     "ItemName": "ABC Rutba",
@@ -247,7 +247,7 @@
     "Item_Sale_Price": 25.0,
     "Item_Purchase_Price": 20.0,
     "Item_SelfVal_Price": 23.5,
-    "Stock": 4482.0
+    "Stock": 4477.0
   },
   {
     "ItemName": "AF DURANDHAR",
@@ -667,7 +667,7 @@
     "Item_Sale_Price": 1400.0,
     "Item_Purchase_Price": 1250.0,
     "Item_SelfVal_Price": 1350.0,
-    "Stock": 4.0
+    "Stock": 3.0
   },
   {
     "ItemName": "ARNIMA 1302",
@@ -1007,7 +1007,7 @@
     "Item_Sale_Price": 30.0,
     "Item_Purchase_Price": 21.5,
     "Item_SelfVal_Price": 24.0,
-    "Stock": 3287.15
+    "Stock": 3286.15
   },
   {
     "ItemName": "Bobby Jasoos",
@@ -2077,7 +2077,7 @@
     "Item_Sale_Price": 560.0,
     "Item_Purchase_Price": 465.0,
     "Item_SelfVal_Price": 500.0,
-    "Stock": 3.0
+    "Stock": 2.0
   },
   {
     "ItemName": "GARIMA VELVET",
@@ -3287,7 +3287,7 @@
     "Item_Sale_Price": 1850.0,
     "Item_Purchase_Price": 1635.0,
     "Item_SelfVal_Price": 1750.0,
-    "Stock": 35.0
+    "Stock": 33.0
   },
   {
     "ItemName": "GF SADAK",
@@ -3967,7 +3967,7 @@
     "Item_Sale_Price": 1000.0,
     "Item_Purchase_Price": 735.0,
     "Item_SelfVal_Price": 790.0,
-    "Stock": 2.0
+    "Stock": 1.0
   },
   {
     "ItemName": "GK Fiza",
@@ -4647,7 +4647,7 @@
     "Item_Sale_Price": 800.0,
     "Item_Purchase_Price": 685.0,
     "Item_SelfVal_Price": 725.0,
-    "Stock": 7.0
+    "Stock": 6.0
   },
   {
     "ItemName": "GK Toffy",
@@ -4897,7 +4897,7 @@
     "Item_Sale_Price": 750.0,
     "Item_Purchase_Price": 550.0,
     "Item_SelfVal_Price": 590.0,
-    "Stock": 7.0
+    "Stock": 6.0
   },
   {
     "ItemName": "GNA Fox Ganga",
@@ -6467,7 +6467,7 @@
     "Item_Sale_Price": 400.0,
     "Item_Purchase_Price": 313.0,
     "Item_SelfVal_Price": 335.0,
-    "Stock": -1.0
+    "Stock": -6.0
   },
   {
     "ItemName": "JMD MIX SUIT STAR",
@@ -8237,7 +8237,7 @@
     "Item_Sale_Price": 1870.0,
     "Item_Purchase_Price": 1560.0,
     "Item_SelfVal_Price": 1750.0,
-    "Stock": 1.0
+    "Stock": 0.0
   },
   {
     "ItemName": "KC Candy Bite",
@@ -9817,7 +9817,7 @@
     "Item_Sale_Price": 1450.0,
     "Item_Purchase_Price": 1125.0,
     "Item_SelfVal_Price": 1200.0,
-    "Stock": 1.0
+    "Stock": 0.0
   },
   {
     "ItemName": "KC FLAVOR HUB",
@@ -12357,7 +12357,7 @@
     "Item_Sale_Price": 1650.0,
     "Item_Purchase_Price": 1385.0,
     "Item_SelfVal_Price": 1450.0,
-    "Stock": 3.0
+    "Stock": 2.0
   },
   {
     "ItemName": "KC MOON BEAT",
@@ -12577,7 +12577,7 @@
     "Item_Sale_Price": 1600.0,
     "Item_Purchase_Price": 1345.0,
     "Item_SelfVal_Price": 1425.0,
-    "Stock": 4.0
+    "Stock": 3.0
   },
   {
     "ItemName": "KC Nazimi",
@@ -12737,7 +12737,7 @@
     "Item_Sale_Price": 1500.0,
     "Item_Purchase_Price": 1200.0,
     "Item_SelfVal_Price": 1300.0,
-    "Stock": 4.0
+    "Stock": 3.0
   },
   {
     "ItemName": "KC NOORALI",
@@ -12887,7 +12887,7 @@
     "Item_Sale_Price": 550.0,
     "Item_Purchase_Price": 400.0,
     "Item_SelfVal_Price": 450.0,
-    "Stock": 1.0
+    "Stock": 0.0
   },
   {
     "ItemName": "Kc Param Sundari",
@@ -16427,7 +16427,7 @@
     "Item_Sale_Price": 300.0,
     "Item_Purchase_Price": 245.0,
     "Item_SelfVal_Price": 275.0,
-    "Stock": 48.0
+    "Stock": 38.0
   },
   {
     "ItemName": "KKC AKSHARA",
@@ -16487,7 +16487,7 @@
     "Item_Sale_Price": 350.0,
     "Item_Purchase_Price": 265.0,
     "Item_SelfVal_Price": 290.0,
-    "Stock": -12.0
+    "Stock": -13.0
   },
   {
     "ItemName": "KKC HEER",
@@ -16817,7 +16817,7 @@
     "Item_Sale_Price": 320.0,
     "Item_Purchase_Price": 230.0,
     "Item_SelfVal_Price": 260.0,
-    "Stock": 24.0
+    "Stock": 20.0
   },
   {
     "ItemName": "KT JENNY",
@@ -16997,7 +16997,7 @@
     "Item_Sale_Price": 550.0,
     "Item_Purchase_Price": 405.0,
     "Item_SelfVal_Price": 455.625,
-    "Stock": 5.0
+    "Stock": 4.0
   },
   {
     "ItemName": "Lakhnavi Print",
@@ -17717,7 +17717,7 @@
     "Item_Sale_Price": 400.0,
     "Item_Purchase_Price": 320.0,
     "Item_SelfVal_Price": 335.0,
-    "Stock": 121.0
+    "Stock": 115.0
   },
   {
     "ItemName": "Masti Prem Leela",
@@ -22357,7 +22357,7 @@
     "Item_Sale_Price": 300.0,
     "Item_Purchase_Price": 227.0,
     "Item_SelfVal_Price": 255.0,
-    "Stock": 25.0
+    "Stock": 7.0
   },
   {
     "ItemName": "Royal Ghamti",
@@ -22907,7 +22907,7 @@
     "Item_Sale_Price": 350.0,
     "Item_Purchase_Price": 250.0,
     "Item_SelfVal_Price": 280.0,
-    "Stock": 244.0
+    "Stock": 243.0
   },
   {
     "ItemName": "Rrt High",
@@ -23067,7 +23067,7 @@
     "Item_Sale_Price": 1600.0,
     "Item_Purchase_Price": 1195.0,
     "Item_SelfVal_Price": 1300.0,
-    "Stock": 12.0
+    "Stock": 11.0
   },
   {
     "ItemName": "RS 1375 GLASS",
@@ -23077,7 +23077,7 @@
     "Item_Sale_Price": 1700.0,
     "Item_Purchase_Price": 1285.0,
     "Item_SelfVal_Price": 1400.0,
-    "Stock": 7.0
+    "Stock": 6.0
   },
   {
     "ItemName": "RS 1395",
@@ -26237,7 +26237,7 @@
     "Item_Sale_Price": 650.0,
     "Item_Purchase_Price": 570.0,
     "Item_SelfVal_Price": 641.25,
-    "Stock": 5.0
+    "Stock": 4.0
   },
   {
     "ItemName": "SNT LOTTERY",
@@ -26747,7 +26747,7 @@
     "Item_Sale_Price": 550.0,
     "Item_Purchase_Price": 514.67,
     "Item_SelfVal_Price": 579.0,
-    "Stock": -3.0
+    "Stock": -4.0
   },
   {
     "ItemName": "SNT ROSE GOLD",
@@ -28687,7 +28687,7 @@
     "Item_Sale_Price": 300.0,
     "Item_Purchase_Price": 218.0,
     "Item_SelfVal_Price": 260.0,
-    "Stock": 121.0
+    "Stock": 119.0
   },
   {
     "ItemName": "SRT SUPERFAST",
@@ -28857,7 +28857,7 @@
     "Item_Sale_Price": 1300.0,
     "Item_Purchase_Price": 1085.0,
     "Item_SelfVal_Price": 1200.0,
-    "Stock": 9.0
+    "Stock": 8.0
   },
   {
     "ItemName": "SSM SHEENA",
@@ -28887,7 +28887,7 @@
     "Item_Sale_Price": 1300.0,
     "Item_Purchase_Price": 1085.0,
     "Item_SelfVal_Price": 1200.0,
-    "Stock": 2.0
+    "Stock": 1.0
   },
   {
     "ItemName": "SST SURYAJYOTI",
